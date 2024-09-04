@@ -3,27 +3,25 @@ organization_id = "ginger-society"
 
 [rdbms."IAM"]
 description = "Identity and authorization db for IAM service"
-password = "postgress"
+enable = true
 port = "5432"
 schema_id = "66bbad42-200f-4b2f-ba0d-9feb1f3edbfa"
 studio_port = "9002"
-username = "postgress"
 
 [rdbms."metadata"]
 description = "Dev portal db for Metadata Service"
-password = "postgress"
+enable = true
 port = "5433"
 schema_id = "a56e44a9-cfc6-4f69-9b7f-510789b6fa80"
 studio_port = "8001"
-username = "postgress"
 
 [documentdb."margrette"]
 description = "A test document DB"
-password = "mongo"
+enable = true
 port = "27017"
 studio_port = "4321"
-username = "mongo"
 
 [cache."estonia"]
 description = "cache for IAM and Metadata service"
+enable = true
 port = "6379"

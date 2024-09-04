@@ -14,3 +14,20 @@ docker run --env-file ./.env \
 
 
 ```
+
+To run the studio for the db , navigate to the folder and run 
+
+```sh
+docker-compose up -f docker-compose.prod.yml up
+```
+
+For RDBMS , you should have the .env file looking like this
+
+```bash
+DB_NAME=db-name
+DB_USERNAME=db-username
+DB_PASSWORD=db-password
+DB_HOST=db-host
+DB_PORT=db-port
+```
+
