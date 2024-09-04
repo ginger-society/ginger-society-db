@@ -1,0 +1,4 @@
+pgsql
+mongodb
+*.pyc
+.DS_Store
