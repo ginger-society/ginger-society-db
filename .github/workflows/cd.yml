@@ -14,31 +14,31 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Migrate for IAM DB
+      working-directory: ./IAM
       run: |
         echo "Starting migration for IAM DB"
         docker run \
-          -v $(pwd)/IAM/models.py:/app/src/models.py \
-          -v $(pwd)/IAM/admin.py:/app/src/admin.py \
-          -v $(pwd)/IAM/migrations:/app/src/migrations \
+          -e DB_HOST=${{ secrets.DB_HOST }} \
+          -e DB_PORT=${{ secrets.DB_PORT }} \
+          -e DB_USERNAME=${{ secrets.DB_USERNAME }} \
+          -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
+          -e DB_NAME=${{ secrets.DB_NAME_ONE }} \
+          -v $(pwd)/models.py:/app/src/models.py \
+          -v $(pwd)/admin.py:/app/src/admin.py \
+          -v $(pwd)/migrations:/app/src/migrations \
           gingersociety/db-compose-migrator:latest
-      env:
-        DB_HOST: ${{ secrets.DB_HOST }}
-        DB_PORT: ${{ secrets.DB_PORT }}
-        DB_USERNAME: ${{ secrets.DB_USERNAME }}
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        DB_NAME: ${{ secrets.DB_NAME_ONE }}
 
     - name: Migrate for Metadata DB
+      working-directory: ./metadata
       run: |
         echo "Starting migration for Metadata DB"
         docker run \
-          -v $(pwd)/metadata/models.py:/app/src/models.py \
-          -v $(pwd)/metadata/admin.py:/app/src/admin.py \
-          -v $(pwd)/metadata/migrations:/app/src/migrations \
+          -e DB_HOST=${{ secrets.DB_HOST }} \
+          -e DB_PORT=${{ secrets.DB_PORT }} \
+          -e DB_USERNAME=${{ secrets.DB_USERNAME }} \
+          -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
+          -e DB_NAME=${{ secrets.DB_NAME_TWO }} \
+          -v $(pwd)/models.py:/app/src/models.py \
+          -v $(pwd)/admin.py:/app/src/admin.py \
+          -v $(pwd)/migrations:/app/src/migrations \
           gingersociety/db-compose-migrator:latest
-      env:
-        DB_HOST: ${{ secrets.DB_HOST }}
-        DB_PORT: ${{ secrets.DB_PORT }}
-        DB_USERNAME: ${{ secrets.DB_USERNAME }}
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        DB_NAME: ${{ secrets.DB_NAME_TWO }}
