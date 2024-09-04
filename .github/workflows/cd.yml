@@ -13,8 +13,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Migrate for iam db
-      run: docker run -v ./IAM/models.py:/app/src/models.py -v ./IAM/admin.py:/app/src/admin.py -v ./IAM/migrations:/app/src/migrations gingersociety/db-compose-migrator:latest
+    - name: Migrate for IAM DB
+      run: |
+        echo "Starting migration for IAM DB"
+        docker run \
+          -v $(pwd)/IAM/models.py:/app/src/models.py \
+          -v $(pwd)/IAM/admin.py:/app/src/admin.py \
+          -v $(pwd)/IAM/migrations:/app/src/migrations \
+          gingersociety/db-compose-migrator:latest
       env:
         DB_HOST: ${{ secrets.DB_HOST }}
         DB_PORT: ${{ secrets.DB_PORT }}
@@ -22,12 +28,17 @@ jobs:
         DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         DB_NAME: ${{ secrets.DB_NAME_ONE }}
 
-    - name: Run migrations for metadata db
-      run: docker run -v ./metadata/models.py:/app/src/models.py -v ./metadata/admin.py:/app/src/admin.py -v ./metadata/migrations:/app/src/migrations gingersociety/db-compose-migrator:latest
+    - name: Migrate for Metadata DB
+      run: |
+        echo "Starting migration for Metadata DB"
+        docker run \
+          -v $(pwd)/metadata/models.py:/app/src/models.py \
+          -v $(pwd)/metadata/admin.py:/app/src/admin.py \
+          -v $(pwd)/metadata/migrations:/app/src/migrations \
+          gingersociety/db-compose-migrator:latest
       env:
         DB_HOST: ${{ secrets.DB_HOST }}
         DB_PORT: ${{ secrets.DB_PORT }}
         DB_USERNAME: ${{ secrets.DB_USERNAME }}
         DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         DB_NAME: ${{ secrets.DB_NAME_TWO }}
-    
