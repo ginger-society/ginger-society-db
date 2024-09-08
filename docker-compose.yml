@@ -1,31 +1,6 @@
 version: '3'
+
 services:
-    metadata-runtime:
-        image: gingersociety/db-compose-runtime:latest
-        ports:
-            - 8001:8000
-        environment:
-            - DB_NAME=metadata-db
-            - DB_USERNAME=postgres
-            - DB_PASSWORD=postgres
-            - DB_HOST=metadata-db
-            - DB_PORT=5432
-        volumes:
-            - ./metadata/models.py:/app/src/models.py
-            - ./metadata/admin.py:/app/src/admin.py
-            - ./metadata/migrations:/app/src/migrations
-        depends_on:
-            - metadata-db
-    metadata-db:
-        image: postgres:14.1-alpine
-        # restart: always
-        environment:
-            - POSTGRES_USER=postgres
-            - POSTGRES_PASSWORD=postgres
-        ports:
-            - 5433:5432
-        volumes:
-            - ./metadata/pgsql:/var/lib/postgresql/data
 
     IAM-runtime:
         image: gingersociety/db-compose-runtime:latest
@@ -45,7 +20,6 @@ services:
             - IAM-db
     IAM-db:
         image: postgres:14.1-alpine
-        restart: always
         environment:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
@@ -54,9 +28,34 @@ services:
         volumes:
             - ./IAM/pgsql:/var/lib/postgresql/data
 
+    metadata-runtime:
+        image: gingersociety/db-compose-runtime:latest
+        ports:
+            - 8001:8000
+        environment:
+            - DB_NAME=metadata-db
+            - DB_USERNAME=postgres
+            - DB_PASSWORD=postgres
+            - DB_HOST=metadata-db
+            - DB_PORT=5432
+        volumes:
+            - ./metadata/models.py:/app/src/models.py
+            - ./metadata/admin.py:/app/src/admin.py
+            - ./metadata/migrations:/app/src/migrations
+        depends_on:
+            - metadata-db
+    metadata-db:
+        image: postgres:14.1-alpine
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        ports:
+            - 5433:5432
+        volumes:
+            - ./metadata/pgsql:/var/lib/postgresql/data
+
     estonia-redis:
         image: bitnami/redis:6.2.5
-        # restart: always
         environment:
             ALLOW_EMPTY_PASSWORD: "yes"
         healthcheck:
@@ -65,4 +64,4 @@ services:
             timeout: 3s
             retries: 50
         ports:
-            - 6379:6379
+            - 6380:6379

@@ -1,31 +1,27 @@
 branch = "stage"
 organization_id = "ginger-society"
 
-[[rdbms]]
+[[database]]
+db_type = "rdbms"
 description = "Identity and authorization db for IAM service"
 enable = true
-id = "66bbad42-200f-4b2f-ba0d-9feb1f3edbfa"
+id = "a56e44a9-cfc6-4f69-9b7f-510789b6fa80"
 name = "IAM"
 port = "5432"
 studio_port = "9002"
 
-[[rdbms]]
+[[database]]
+db_type = "rdbms"
 description = "Dev portal db for Metadata Service"
 enable = true
-id = "a56e44a9-cfc6-4f69-9b7f-510789b6fa80"
+id = "66bbad42-200f-4b2f-ba0d-9feb1f3edbfa"
 name = "metadata"
 port = "5433"
 studio_port = "8001"
 
-[[documentdb]]
-description = "A test document DB"
-enable = true
-name = "margrette"
-port = "27017"
-studio_port = "4321"
-
-[[cache]]
+[[database]]
+db_type = "cache"
 description = "cache for IAM and Metadata service"
 enable = true
 name = "estonia"
-port = "6379"
+port = "6380"

@@ -2,6 +2,19 @@ from ginger.db import models
 
 
 
+db_types = (
+    
+        ("rdbms", "rdbms"),
+    
+        ("cache", "cache"),
+    
+        ("documentdb", "documentdb"),
+    
+)
+
+
+
+
 build_status_options = (
     
         ("running", "running"),
@@ -82,6 +95,9 @@ class dbschema(models.Model):
     
      
         repo_origin = models.CharField(  max_length=200,     blank=True,null=True,     )
+    
+     
+        db_type = models.CharField( choices=db_types, max_length=50,   default='rdbms',      )
     
         class Meta:
             db_table = "dbschema"

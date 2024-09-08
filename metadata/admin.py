@@ -18,6 +18,7 @@ def create_model_admin(model):
 
 
 
+
 admin.site.register(dbschema, create_model_admin(dbschema) )
 
 
