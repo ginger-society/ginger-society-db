@@ -192,6 +192,9 @@ class service(models.Model):
      
         repo_origin = models.CharField(  max_length=200,     blank=True,null=True,     )
     
+     
+        cache_schema_id = models.CharField(  max_length=250,     blank=True,null=True,     )
+    
         class Meta:
             db_table = "service"
 
