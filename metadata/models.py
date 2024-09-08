@@ -85,7 +85,7 @@ class dbschema(models.Model):
         data = models.TextField(  max_length=10000,     null=True,     )
     
      
-        group_id = models.CharField(  max_length=500,         )
+        group_id = models.CharField(  max_length=500,     blank=True,null=True,     )
     
      
         identifier = models.CharField(  max_length=100,     blank=True,null=True,     )

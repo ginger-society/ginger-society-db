@@ -1,7 +1,8 @@
 version: '3'
 
 services:
-
+    
+    
     IAM-runtime:
         image: gingersociety/db-compose-runtime:latest
         ports:
@@ -20,6 +21,7 @@ services:
             - IAM-db
     IAM-db:
         image: postgres:14.1-alpine
+        restart: always
         environment:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
@@ -27,7 +29,9 @@ services:
             - 5432:5432
         volumes:
             - ./IAM/pgsql:/var/lib/postgresql/data
-
+    
+    
+    
     metadata-runtime:
         image: gingersociety/db-compose-runtime:latest
         ports:
@@ -46,6 +50,7 @@ services:
             - metadata-db
     metadata-db:
         image: postgres:14.1-alpine
+        restart: always
         environment:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
@@ -53,9 +58,12 @@ services:
             - 5433:5432
         volumes:
             - ./metadata/pgsql:/var/lib/postgresql/data
-
+    
+    
+    
     estonia-redis:
         image: bitnami/redis:6.2.5
+        restart: always
         environment:
             ALLOW_EMPTY_PASSWORD: "yes"
         healthcheck:
@@ -65,3 +73,5 @@ services:
             retries: 50
         ports:
             - 6380:6379
+    
+    
