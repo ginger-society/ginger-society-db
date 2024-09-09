@@ -21,11 +21,9 @@ jobs:
       run: ginger-auth token-login ${{ secrets.GINGER_TOKEN }}
 
     - name: Update pipeline to running
-      id: ginger-connector-running
       run: ginger-connector update-db-pipeline stage running ginger-society/IAM
 
     - name: Update pipeline to running
-      id: ginger-connector-running
       run: ginger-connector update-db-pipeline stage running ginger-society/metadata
 
     - name: Migrate for IAM DB
@@ -44,7 +42,6 @@ jobs:
           gingersociety/db-compose-migrator:latest
 
     - name: Update pipeline to running
-      id: ginger-connector-running
       run: ginger-connector update-db-pipeline stage passing ginger-society/IAM
 
     - name: Migrate for Metadata DB
@@ -63,5 +60,4 @@ jobs:
           gingersociety/db-compose-migrator:latest
 
     - name: Update pipeline to running
-      id: ginger-connector-running
       run: ginger-connector update-db-pipeline stage passing ginger-society/metadata
