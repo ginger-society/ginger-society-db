@@ -23,5 +23,6 @@ studio_port = "8001"
 db_type = "cache"
 description = "cache for IAM and Metadata service"
 enable = true
+id = "a3f5e631-8225-4ac5-85b9-71ecd107bb6c"
 name = "estonia"
 port = "6380"
