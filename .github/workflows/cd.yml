@@ -61,3 +61,6 @@ jobs:
 
     - name: Update pipeline to running
       run: ginger-connector update-db-pipeline stage passing ginger-society/metadata
+
+    - name: Update pipeline to running
+      run: ginger-connector update-db-pipeline stage passing ginger-society/estonia
