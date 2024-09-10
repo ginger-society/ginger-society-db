@@ -166,7 +166,7 @@ class service(models.Model):
         identifier = models.CharField(  max_length=50,         )
     
      
-        group_id = models.CharField(  max_length=100,         )
+        group_id = models.CharField(  max_length=100,     blank=True,null=True,     )
     
      
         db_schema_id = models.CharField(  max_length=100,     blank=True,null=True,     )
