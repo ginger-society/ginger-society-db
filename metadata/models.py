@@ -313,6 +313,9 @@ class organization(models.Model):
      
         name = models.CharField(  max_length=100,     blank=True,null=True,     )
     
+     
+        is_public = models.BooleanField(default=False,          )
+    
         class Meta:
             db_table = "organization"
 
