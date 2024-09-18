@@ -99,6 +99,9 @@ class dbschema(models.Model):
      
         db_type = models.CharField( choices=db_types, max_length=50,   default='rdbms',      )
     
+     
+        quick_links = models.TextField(  max_length=10000,     null=True,     )
+    
         class Meta:
             db_table = "dbschema"
 
@@ -195,6 +198,9 @@ class service(models.Model):
      
         cache_schema_id = models.CharField(  max_length=250,     blank=True,null=True,     )
     
+     
+        quick_links = models.TextField(  max_length=10000,     null=True,     )
+    
         class Meta:
             db_table = "service"
 
@@ -265,6 +271,9 @@ class package(models.Model):
     
      
         repo_origin = models.CharField(  max_length=200,     blank=True,null=True,     )
+    
+     
+        quick_links = models.TextField(  max_length=10000,     null=True,     )
     
         class Meta:
             db_table = "package"
