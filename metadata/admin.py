@@ -42,3 +42,6 @@ admin.site.register(package_env, create_model_admin(package_env) )
 
 admin.site.register(organization, create_model_admin(organization) )
 
+
+admin.site.register(snapshots, create_model_admin(snapshots) )
+

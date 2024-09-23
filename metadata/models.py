@@ -325,8 +325,33 @@ class organization(models.Model):
      
         is_public = models.BooleanField(default=False,          )
     
+     
+        infra_repo_origin = models.CharField(  max_length=200,     blank=True,null=True,     )
+    
         class Meta:
             db_table = "organization"
+
+
+
+
+class snapshots(models.Model):
+        """"""
+    
+    
+     
+        version = models.CharField(  max_length=50,         )
+    
+     
+        created_at = models.DateTimeField(         auto_now_add=True,  )
+    
+     
+        updated_at = models.DateTimeField(        auto_now=True,   )
+    
+     
+        organization_id = models.CharField(  max_length=100,         )
+    
+        class Meta:
+            db_table = "snapshots"
 
 
 

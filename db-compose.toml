@@ -10,6 +10,24 @@ name = "IAM"
 port = "5432"
 studio_port = "9002"
 
+[[database.links]]
+internal = true
+label = "Pull Requests"
+icon = "FaCodeBranch"
+link = "https://github.com/ginger-society/ginger-society-db/pulls"
+
+[[database.links]]
+internal = true
+label = "Pipelines"
+icon = "FaRegPlayCircle"
+link = "https://github.com/ginger-society/ginger-society-db/actions"
+
+[[database.links]]
+internal = true
+label = "Browse Repo"
+icon = "FaGithub"
+link = "https://github.com/ginger-society/ginger-society-db"
+
 [[database]]
 db_type = "rdbms"
 description = "Dev portal db for Metadata Service"
@@ -19,6 +37,24 @@ name = "metadata"
 port = "5433"
 studio_port = "8001"
 
+[[database.links]]
+internal = true
+label = "Pull Requests"
+icon = "FaCodeBranch"
+link = "https://github.com/ginger-society/metadata-service-db/pulls"
+
+[[database.links]]
+internal = true
+label = "Pipelines"
+icon = "FaRegPlayCircle"
+link = "https://github.com/ginger-society/metadata-service-db/actions"
+
+[[database.links]]
+internal = true
+label = "Browse Repo"
+icon = "FaGithub"
+link = "https://github.com/ginger-society/metadata-service-db"
+
 [[database]]
 db_type = "cache"
 description = "cache for IAM and Metadata service"
@@ -26,3 +62,4 @@ enable = true
 id = "a3f5e631-8225-4ac5-85b9-71ecd107bb6c"
 name = "estonia"
 port = "6380"
+links = []
