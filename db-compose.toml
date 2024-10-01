@@ -63,3 +63,13 @@ id = "a3f5e631-8225-4ac5-85b9-71ecd107bb6c"
 name = "estonia"
 port = "6380"
 links = []
+
+[[database]]
+db_type = "messagequeue"
+description = "Rabbit mq based message queue"
+enable = true
+id = "6a06e876-b40f-472d-be2b-97a2867b88f3"
+name = "changi"
+port = "5672"
+studio_port = "15672"
+links = []

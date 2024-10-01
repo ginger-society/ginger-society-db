@@ -201,6 +201,9 @@ class service(models.Model):
      
         quick_links = models.TextField(  max_length=10000,     null=True,     )
     
+     
+        message_queue_schema_id = models.CharField(  max_length=150,     blank=True,null=True,     )
+    
         class Meta:
             db_table = "service"
 
