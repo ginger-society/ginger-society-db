@@ -334,6 +334,9 @@ class organization(models.Model):
      
         quick_links = models.TextField(  max_length=20000,     null=True,     )
     
+     
+        version = models.CharField(  max_length=25,     blank=True,null=True,     )
+    
         class Meta:
             db_table = "organization"
 
