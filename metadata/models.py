@@ -331,6 +331,9 @@ class organization(models.Model):
      
         infra_repo_origin = models.CharField(  max_length=200,     blank=True,null=True,     )
     
+     
+        quick_links = models.TextField(  max_length=20000,     null=True,     )
+    
         class Meta:
             db_table = "organization"
 
