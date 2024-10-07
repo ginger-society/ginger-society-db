@@ -84,9 +84,9 @@ jobs:
       working-directory: ./IAM
       run: |
         echo "Building metadata-db runtime image"
-        docker buildx build --platform linux/amd64 -t gingersociety/IAM-db-runtime . --load
+        docker buildx build --platform linux/amd64 -t gingersociety/iam-db-runtime . --load
 
     - name: Push IAM-db runtime image
       run: |
-        echo "Pushing IAM-db runtime image to Docker Hub"
-        docker push gingersociety/IAM-db-runtime
+        echo "Pushing iam-db runtime image to Docker Hub"
+        docker push gingersociety/iam-db-runtime
