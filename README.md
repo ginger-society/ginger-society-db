@@ -31,3 +31,7 @@ DB_HOST=db-host
 DB_PORT=db-port
 ```
 
+
+docker buildx build --platform linux/amd64 -t gingersociety/metadata-db-runtime . --load
+
+docker push gingersociety/metadata-db-runtime

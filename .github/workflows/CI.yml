@@ -1,6 +1,7 @@
 name: Build, Push Docker Image, and Restart Deployment
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -20,10 +21,10 @@ jobs:
       id: ginger-auth
       run: ginger-auth token-login ${{ secrets.GINGER_TOKEN }}
 
-    - name: Update pipeline to running
+    - name: Update pipeline to running for IAM DB
       run: ginger-connector update-db-pipeline stage running ginger-society/IAM
 
-    - name: Update pipeline to running
+    - name: Update pipeline to running for Metadata DB
       run: ginger-connector update-db-pipeline stage running ginger-society/metadata
 
     - name: Migrate for IAM DB
@@ -41,7 +42,7 @@ jobs:
           -v $(pwd)/migrations:/app/src/migrations \
           gingersociety/db-compose-migrator:latest
 
-    - name: Update pipeline to running
+    - name: Update pipeline to passing for IAM DB
       run: ginger-connector update-db-pipeline stage passing ginger-society/IAM
 
     - name: Migrate for Metadata DB
@@ -59,8 +60,22 @@ jobs:
           -v $(pwd)/migrations:/app/src/migrations \
           gingersociety/db-compose-migrator:latest
 
-    - name: Update pipeline to running
+    - name: Update pipeline to passing for Metadata DB
       run: ginger-connector update-db-pipeline stage passing ginger-society/metadata
 
-    - name: Update pipeline to running
+    - name: Update pipeline to passing for Estonia DB
       run: ginger-connector update-db-pipeline stage passing ginger-society/estonia
+
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+
+    - name: Build metadata-db runtime image
+      working-directory: ./metadata
+      run: |
+        echo "Building metadata-db runtime image"
+        docker buildx build --platform linux/amd64 -t gingersociety/metadata-db-runtime . --load
+
+    - name: Push metadata-db runtime image
+      run: |
+        echo "Pushing metadata-db runtime image to Docker Hub"
+        docker push gingersociety/metadata-db-runtime
