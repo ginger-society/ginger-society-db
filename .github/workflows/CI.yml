@@ -79,3 +79,14 @@ jobs:
       run: |
         echo "Pushing metadata-db runtime image to Docker Hub"
         docker push gingersociety/metadata-db-runtime
+
+    - name: Build IAM-db runtime image
+      working-directory: ./IAM
+      run: |
+        echo "Building metadata-db runtime image"
+        docker buildx build --platform linux/amd64 -t gingersociety/IAM-db-runtime . --load
+
+    - name: Push IAM-db runtime image
+      run: |
+        echo "Pushing IAM-db runtime image to Docker Hub"
+        docker push gingersociety/IAM-db-runtime
