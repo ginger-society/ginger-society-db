@@ -120,7 +120,14 @@ jobs:
       uses: google-github-actions/setup-gcloud@v2
       with:
         project_id: ${{ secrets.GCP_PROJECT_ID }}  # Your GCP Project ID
-        service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}  # Your GCP Service Account Key
+        version: 'latest'  # Specify the version to use
+
+    - name: Set up Google Cloud Application Credentials
+      run: echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" | base64 --decode > ${{ github.workspace }}/gcloud-key.json
+
+    - name: Authenticate with Google Cloud
+      run: |
+        gcloud auth activate-service-account --key-file=${{ github.workspace }}/gcloud-key.json
 
     - name: Update Cloud Run Image - IAM
       run: |
