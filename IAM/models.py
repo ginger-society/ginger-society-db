@@ -83,6 +83,9 @@ class app(models.Model):
      
         app_url_prod = models.CharField(  max_length=100,     blank=True,null=True,     )
     
+     
+        group = models.ForeignKey('group',related_name = 'apps', on_delete=models.SET_NULL,      null=True,     )
+    
         class Meta:
             db_table = "app"
 
