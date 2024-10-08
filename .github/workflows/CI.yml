@@ -43,7 +43,7 @@ jobs:
     # Push only if there are changes
     - name: Push changes if any
       if: success() && steps.commit-changes.outcome == 'success'
-      run: git push origin main
+      run: git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/ginger-society/ginger-society-db.git main
 
     - name: Update pipeline to running for Metadata DB
       run: ginger-connector update-db-pipeline stage running ginger-society/metadata
