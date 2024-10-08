@@ -86,6 +86,9 @@ class app(models.Model):
      
         group = models.ForeignKey('group',related_name = 'apps', on_delete=models.SET_NULL,      null=True,     )
     
+     
+        tnc_link = models.CharField(  max_length=500,     blank=True,null=True,     )
+    
         class Meta:
             db_table = "app"
 
