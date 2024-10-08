@@ -5,7 +5,6 @@ from ginger.db import migrations, models
 
 
 class Migration(migrations.Migration):
-    atomic = False
     dependencies = [
         ("src", "0007_alter_api_token_token_str"),
     ]
