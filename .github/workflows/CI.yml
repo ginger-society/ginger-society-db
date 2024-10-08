@@ -27,18 +27,7 @@ jobs:
     - name: Render latest models
       run: ginger-db up
 
-    - name: Check modified files
-      run: git status
-
-    - name: Force Git detection
-      run: git add -A
-
-    - name: Commit rendered models
-      id: commit-changes
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git commit -m "Update models after rendering" || echo "No changes to commit"
+    
 
     - name: Update pipeline to running for Metadata DB
       run: ginger-connector update-db-pipeline stage running ginger-society/metadata
@@ -76,10 +65,26 @@ jobs:
           -v $(pwd)/migrations:/app/src/migrations \
           gingersociety/db-compose-migrator:latest
 
+    - name: Check modified files
+      run: git status
+
+    - name: Force Git detection
+      run: git add -A
+
+    - name: Commit rendered models
+      id: commit-changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git commit -m "Update models after rendering" || echo "No changes to commit"
+
     # Push only if there are changes
     - name: Push changes if any
       if: success() && steps.commit-changes.outcome == 'success'
-      run: git push origin main
+      run: |
+        ginger-releaser release patch
+        git push origin main
+        ginger-connector register stage
 
     - name: Update pipeline to passing for Metadata DB
       run: ginger-connector update-db-pipeline stage passing ginger-society/metadata
