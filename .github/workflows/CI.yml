@@ -116,3 +116,29 @@ jobs:
       run: |
         echo "Pushing iam-db runtime image to Docker Hub"
         docker push gingersociety/iam-db-runtime
+
+    # Step to update Cloud Run service with the new image
+    - name: Update Cloud Run service
+      uses: google-github-actions/setup-gcloud@v2
+      with:
+        project_id: ${{ secrets.GCP_PROJECT_ID }}  # Your GCP Project ID
+        service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}  # Your GCP Service Account Key
+        export_default_credentials: true
+
+    - name: Update Cloud Run Image - IAM
+      run: |
+        echo "Updating Cloud Run service with the new image"
+        gcloud run services update iam-db-runtime \
+          --image gingersociety/iam-db-runtime:latest \
+          --platform managed \
+          --region asia-south1 \
+          --quiet  # Add --quiet to skip confirmation prompts
+
+    - name: Update Cloud Run Image - Metadata
+      run: |
+        echo "Updating Cloud Run service with the new image"
+        gcloud run services update metadata-db-runtime \
+          --image gingersociety/metadata-db-runtime:latest \
+          --platform managed \
+          --region asia-south1 \
+          --quiet  # Add --quiet to skip confirmation prompts
