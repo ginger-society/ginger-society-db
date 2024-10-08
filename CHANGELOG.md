@@ -1,4 +1,7 @@
 ## 0.6.0-nightly.0 - 2024-10-08
+fix:
+ - [2405148858](https://github.com/ginger-society/ginger-society-db2405148858724d4b07d2ba624276b379e666285c) (Ginger Society Admin) fix: migrations files are not commited
+	
 feat:
  - [b8a1e43c78](https://github.com/ginger-society/ginger-society-dbb8a1e43c78dc10efeb32a82032614351913042a3) (Ginger Society Admin) feat: added gh token while pushing
 	
@@ -18,23 +21,19 @@ feat:
 	
  - [91c57970fe](https://github.com/ginger-society/ginger-society-db91c57970feba4d4367c80166a505fdb6ea94ce6a) (Ginger Society Admin) feat: added message queue db and respective config entry
 	
-fix:
- - [2405148858](https://github.com/ginger-society/ginger-society-db2405148858724d4b07d2ba624276b379e666285c) (Ginger Society Admin) fix: migrations files are not commited
+Update
+ - [173625dc16](https://github.com/ginger-society/ginger-society-db173625dc16c91267ff403d806bb104d8eaa2d640) (github-actions[bot]) Update models after rendering
 	
 chore:
+ - [8ea13eb934](https://github.com/ginger-society/ginger-society-db8ea13eb934c18ee0f951c9ca29f6ac27279693a6) (Ginger Society Admin) chore: version bump to 0.6.0-nightly.0
+	
  - [08b021072c](https://github.com/ginger-society/ginger-society-db08b021072c577221e59d359ad661050d39ccdcc6) (Ginger Society Admin) chore: reverting using access token
 	
  - [0a28e5a045](https://github.com/ginger-society/ginger-society-db0a28e5a04589f69fc8644b16245fe0ad5d25044d) (Ginger Society Admin) chore: minor fix
 	
-Update
- - [173625dc16](https://github.com/ginger-society/ginger-society-db173625dc16c91267ff403d806bb104d8eaa2d640) (github-actions[bot]) Update models after rendering
-	
 ## 0.5.0-nightly.0 - 2024-09-23
 chore:
  - [73e4e0b2be](https://github.com/ginger-society/ginger-society-db73e4e0b2be2a34d0ff3eac843e225e5fcf3f6d88) (Ginger Society Admin) chore: version bump to 0.5.0-nightly.0
-	
-fix:
- - [7bb981bd96](https://github.com/ginger-society/ginger-society-db7bb981bd965be9b1d6d21bba49acdaf9ef9b1c55) (Ginger Society Admin) fix: pipeline
 	
 feat:
  - [17385a76c9](https://github.com/ginger-society/ginger-society-db17385a76c91cc9b246ff730a8ceb323f12687c24) (Ginger Society Admin) feat: updated metadata and added snapshot table
@@ -51,14 +50,22 @@ feat:
 	
  - [b146492204](https://github.com/ginger-society/ginger-society-dbb1464922040283aad3dde12f305f0f5b10e021ce) (Ginger Society Admin) feat: added id for estonia cache
 	
-## 0.4.0-nightly.0 - 2024-09-09
-feat:
- - [b54d158c2e](https://github.com/ginger-society/ginger-society-dbb54d158c2e985751914be86d66b847827bd7f612) (Ginger Society Admin) feat: moved releaser to root
+fix:
+ - [7bb981bd96](https://github.com/ginger-society/ginger-society-db7bb981bd965be9b1d6d21bba49acdaf9ef9b1c55) (Ginger Society Admin) fix: pipeline
 	
+## 0.4.0-nightly.0 - 2024-09-09
 chore:
  - [4d8f2de34e](https://github.com/ginger-society/ginger-society-db4d8f2de34e5d693151bbb007d7e13f0619e710c6) (Ginger Society Admin) chore: version bump to 0.4.0-nightly.0
 	
+feat:
+ - [b54d158c2e](https://github.com/ginger-society/ginger-society-dbb54d158c2e985751914be86d66b847827bd7f612) (Ginger Society Admin) feat: moved releaser to root
+	
 ## 0.3.0-nightly.0 - 2024-09-09
+chore:
+ - [48072d4de6](https://github.com/ginger-society/ginger-society-db48072d4de6fbb483dfece9dd1012c3543e803938) (Ginger Society Admin) chore: version bump to 0.3.0-nightly.0
+	
+ - [7b3253c8e2](https://github.com/ginger-society/ginger-society-db7b3253c8e2845ed6488017f37bf68f4c6e029ded) (Ginger Society Admin) chore: minor refactoring
+	
 feat:
  - [a446ae755c](https://github.com/ginger-society/ginger-society-dba446ae755ce65e9d1983cf9fa530e3b966ca9fc1) (Ginger Society Admin) feat: added cache schema id in service
 	
@@ -77,9 +84,4 @@ feat:
  - [c4e4321523](https://github.com/ginger-society/ginger-society-dbc4e43215233cc00c9615ce77b8c617d6bdf84a9f) (Ginger Society Admin) feat: updated readme
 	
  - [fef3e470e6](https://github.com/ginger-society/ginger-society-dbfef3e470e62ecf90c6326f13be8309157fc4d924) (Ginger Society Admin) feat: first commit
-	
-chore:
- - [48072d4de6](https://github.com/ginger-society/ginger-society-db48072d4de6fbb483dfece9dd1012c3543e803938) (Ginger Society Admin) chore: version bump to 0.3.0-nightly.0
-	
- - [7b3253c8e2](https://github.com/ginger-society/ginger-society-db7b3253c8e2845ed6488017f37bf68f4c6e029ded) (Ginger Society Admin) chore: minor refactoring
 	
