@@ -11,27 +11,27 @@ port = "5432"
 studio_port = "9002"
 
 [[database.links]]
+icon = "FaLink"
 internal = true
 label = "Open Studio"
-icon = "FaLink"
 link = "https://iam-db-runtime-675766508318.asia-south1.run.app/admin/src/"
 
 [[database.links]]
+icon = "FaCodeBranch"
 internal = true
 label = "Pull Requests"
-icon = "FaCodeBranch"
 link = "https://github.com/ginger-society/ginger-society-db/pulls"
 
 [[database.links]]
+icon = "FaRegPlayCircle"
 internal = true
 label = "Pipelines"
-icon = "FaRegPlayCircle"
-link = "https://github.com/ginger-society/ginger-society-db/actions"
+link = "https://github.com/ginger-society/ginger-society-db/actions/workflows/CI.yml"
 
 [[database.links]]
+icon = "FaGithub"
 internal = true
 label = "Browse Repo"
-icon = "FaGithub"
 link = "https://github.com/ginger-society/ginger-society-db"
 
 [[database]]
@@ -44,27 +44,27 @@ port = "5433"
 studio_port = "8001"
 
 [[database.links]]
+icon = "FaLink"
 internal = true
 label = "Open Studio"
-icon = "FaLink"
 link = "https://metadata-db-runtime-675766508318.asia-south1.run.app//admin/src/"
 
 [[database.links]]
+icon = "FaCodeBranch"
 internal = true
 label = "Pull Requests"
-icon = "FaCodeBranch"
 link = "https://github.com/ginger-society/metadata-service-db/pulls"
 
 [[database.links]]
+icon = "FaRegPlayCircle"
 internal = true
 label = "Pipelines"
-icon = "FaRegPlayCircle"
-link = "https://github.com/ginger-society/metadata-service-db/actions"
+link = "https://github.com/ginger-society/ginger-society-db/actions/workflows/CI.yml"
 
 [[database.links]]
+icon = "FaGithub"
 internal = true
 label = "Browse Repo"
-icon = "FaGithub"
 link = "https://github.com/ginger-society/metadata-service-db"
 
 [[database]]
@@ -72,16 +72,16 @@ db_type = "cache"
 description = "cache for IAM and Metadata service"
 enable = true
 id = "a3f5e631-8225-4ac5-85b9-71ecd107bb6c"
+links = []
 name = "estonia"
 port = "6380"
-links = []
 
 [[database]]
 db_type = "messagequeue"
 description = "Rabbit mq based message queue"
 enable = true
 id = "6a06e876-b40f-472d-be2b-97a2867b88f3"
+links = []
 name = "changi"
 port = "5672"
 studio_port = "15672"
-links = []
