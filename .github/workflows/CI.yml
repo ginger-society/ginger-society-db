@@ -27,13 +27,23 @@ jobs:
     - name: Render latest models
       run: ginger-db up
 
+    - name: Check modified files
+      run: git status
+
+    - name: Force Git detection
+      run: git add -A
+
     - name: Commit rendered models
+      id: commit-changes
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add .
-        git commit -m "feat: Update models after rendering"
-        git push origin main
+        git commit -m "Update models after rendering" || echo "No changes to commit"
+
+    # Push only if there are changes
+    - name: Push changes if any
+      if: success() && steps.commit-changes.outcome == 'success'
+      run: git push origin main
 
     - name: Update pipeline to running for Metadata DB
       run: ginger-connector update-db-pipeline stage running ginger-society/metadata
