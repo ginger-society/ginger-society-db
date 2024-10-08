@@ -5,9 +5,20 @@ from ginger.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
+    atomic = False
     dependencies = [
         ("src", "0007_alter_api_token_token_str"),
     ]
 
-    operations = []
+    operations = [
+        migrations.AddField(
+            model_name="app",
+            name="group",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=ginger.db.models.deletion.SET_NULL,
+                related_name="apps",
+                to="src.group",
+            ),
+        ),
+    ]
