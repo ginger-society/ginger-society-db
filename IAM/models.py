@@ -50,7 +50,7 @@ class token(models.Model):
         user = models.ForeignKey('user',related_name = 'tokens', on_delete=models.CASCADE,          )
     
      
-        app = models.ForeignKey('app',on_delete=models.CASCADE,      null=True,     )
+        app = models.ForeignKey('app',on_delete=models.CASCADE,      blank=True,null=True,     )
     
         class Meta:
             db_table = "token"
@@ -84,7 +84,7 @@ class app(models.Model):
         app_url_prod = models.CharField(  max_length=100,     blank=True,null=True,     )
     
      
-        group = models.ForeignKey('group',related_name = 'apps', on_delete=models.SET_NULL,      null=True,     )
+        group = models.ForeignKey('group',related_name = 'apps', on_delete=models.SET_NULL,      blank=True,null=True,     )
     
      
         tnc_link = models.CharField(  max_length=500,     blank=True,null=True,     )
