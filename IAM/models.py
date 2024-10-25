@@ -89,6 +89,9 @@ class app(models.Model):
      
         tnc_link = models.CharField(  max_length=500,     blank=True,null=True,     )
     
+     
+        allow_registration = models.BooleanField(default=False,          )
+    
         class Meta:
             db_table = "app"
 
