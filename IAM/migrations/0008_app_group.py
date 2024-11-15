@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name="group",
             field=models.ForeignKey(
                 null=True,
-                on_delete=ginger.db.models.deletion.SET_NULL,
+                on_delete=gingerdj.db.models.deletion.SET_NULL,
                 related_name="apps",
                 to="src.group",
             ),

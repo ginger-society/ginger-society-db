@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
                 (
                     "parent",
                     models.ForeignKey(
-                        on_delete=ginger.db.models.deletion.CASCADE,
+                        on_delete=gingerdj.db.models.deletion.CASCADE,
                         related_name="api_tokens",
                         to="src.group",
                     ),

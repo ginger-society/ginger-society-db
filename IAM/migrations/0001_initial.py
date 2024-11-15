@@ -85,14 +85,14 @@ class Migration(migrations.Migration):
                     "app",
                     models.ForeignKey(
                         null=True,
-                        on_delete=ginger.db.models.deletion.CASCADE,
+                        on_delete=gingerdj.db.models.deletion.CASCADE,
                         to="src.app",
                     ),
                 ),
                 (
                     "user",
                     models.ForeignKey(
-                        on_delete=ginger.db.models.deletion.CASCADE,
+                        on_delete=gingerdj.db.models.deletion.CASCADE,
                         related_name="tokens",
                         to="src.user",
                     ),
