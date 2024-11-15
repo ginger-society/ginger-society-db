@@ -25,7 +25,7 @@ jobs:
       run: ginger-connector update-db-pipeline stage running ginger-society/IAM
 
     - name: Render latest models
-      run: ginger-db up
+      run: ginger-db up --skip
 
     - name: Update pipeline to running for Metadata DB
       run: ginger-connector update-db-pipeline stage running ginger-society/metadata
