@@ -33,6 +33,9 @@ class user(models.Model):
      
         is_root = models.BooleanField(default=False,          )
     
+     
+        is_active = models.BooleanField(default=False,          )
+    
         class Meta:
             db_table = "user"
 
