@@ -17,9 +17,6 @@ def create_model_admin(model):
 admin.site.register(user, create_model_admin(user) )
 
 
-admin.site.register(token, create_model_admin(token) )
-
-
 admin.site.register(app, create_model_admin(app) )
 
 

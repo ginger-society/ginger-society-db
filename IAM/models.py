@@ -42,25 +42,6 @@ class user(models.Model):
 
 
 
-class token(models.Model):
-        """tokens like password hashes , TOTP , session tokens etc"""
-    
-    
-     
-        session_hash = models.CharField(  max_length=400,     blank=True,null=True,     )
-    
-     
-        user = models.ForeignKey('user',related_name = 'tokens', on_delete=models.CASCADE,          )
-    
-     
-        app = models.ForeignKey('app',on_delete=models.CASCADE,      blank=True,null=True,     )
-    
-        class Meta:
-            db_table = "token"
-
-
-
-
 class app(models.Model):
         """Application"""
     
