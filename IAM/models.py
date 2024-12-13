@@ -79,6 +79,9 @@ class app(models.Model):
      
         description = models.TextField(  max_length=2000,     null=True,     )
     
+     
+        auth_redirection_path = models.CharField(  max_length=100,     blank=True,null=True,     )
+    
         class Meta:
             db_table = "app"
 
