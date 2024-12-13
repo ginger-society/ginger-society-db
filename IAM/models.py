@@ -76,6 +76,9 @@ class app(models.Model):
      
         allow_registration = models.BooleanField(default=False,          )
     
+     
+        description = models.TextField(  max_length=2000,     null=True,     )
+    
         class Meta:
             db_table = "app"
 
