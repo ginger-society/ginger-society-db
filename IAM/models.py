@@ -82,6 +82,9 @@ class app(models.Model):
      
         auth_redirection_path = models.CharField(  max_length=100,     blank=True,null=True,     )
     
+     
+        web_interface = models.BooleanField(default=True,          )
+    
         class Meta:
             db_table = "app"
 
