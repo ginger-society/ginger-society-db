@@ -4,7 +4,7 @@ references = []
 channel = "Nightly"
 major = 0
 minor = 6
-patch = 27
+patch = 28
 revision = 0
 
 [settings]
