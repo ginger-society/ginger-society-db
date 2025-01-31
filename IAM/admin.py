@@ -25,3 +25,6 @@ admin.site.register(group, create_model_admin(group) )
 
 admin.site.register(api_token, create_model_admin(api_token) )
 
+
+admin.site.register(tableexample, create_model_admin(tableexample) )
+

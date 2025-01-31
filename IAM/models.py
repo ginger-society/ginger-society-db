@@ -146,3 +146,19 @@ class api_token(models.Model):
 
 
 
+
+class tableexample(models.Model):
+        """"""
+    
+    
+     
+        field1 = models.CharField(  max_length=300,         )
+    
+     
+        bool1 = models.BooleanField(default=False,          )
+    
+        class Meta:
+            db_table = "tableexample"
+
+
+
