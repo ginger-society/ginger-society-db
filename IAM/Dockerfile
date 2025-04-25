@@ -1,8 +1,10 @@
 # Use the base image specified in your compose file
-FROM gingersociety/db-compose-runtime-prod:latest
+FROM containers.gingersociety.org/gingersociety/ginger-db-compose-runtime:prod
 
 # Expose the application port
 EXPOSE 8000
+
+RUN rm -r /app/src/migrations
 
 # Copy the relevant files into the container
 COPY models.py /app/src/models.py
