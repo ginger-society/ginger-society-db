@@ -2,9 +2,9 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: build-db-runtime-image-and-push-to-registry
-  namespace: tasks-gingersociety-db
+  namespace: tasks-gingersociety-database
   annotations:
-    x-ginger-task-namespace: "gingersociety-db"
+    x-ginger-task-namespace: "gingersociety-database"
     x-ginger-task-trigger-branch: '["refs/heads/main"]' 
 
 spec:
