@@ -1,0 +1,781 @@
+[
+  {
+    "id": "user",
+    "rows": [
+      {
+        "id": "pk",
+        "data": {
+          "name": "pk",
+          "field_name": "pk",
+          "type": "BigAutoField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "first_name",
+        "data": {
+          "name": "firstName",
+          "field_name": "first_name",
+          "type": "CharField",
+          "null": true,
+          "options_target": null,
+          "default": null,
+          "max_length": "40",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "last_name",
+        "data": {
+          "name": "lastName",
+          "field_name": "last_name",
+          "type": "CharField",
+          "null": true,
+          "options_target": null,
+          "default": null,
+          "max_length": "40",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "middle_name",
+        "data": {
+          "name": "middleName",
+          "field_name": "middle_name",
+          "type": "CharField",
+          "null": true,
+          "options_target": null,
+          "default": null,
+          "max_length": "40",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "email_id",
+        "data": {
+          "name": "emailId",
+          "field_name": "email_id",
+          "type": "CharField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": "100",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "mobile_number",
+        "data": {
+          "name": "mobileNumber",
+          "field_name": "mobile_number",
+          "type": "CharField",
+          "null": true,
+          "options_target": null,
+          "default": null,
+          "max_length": "15",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "created_at",
+        "data": {
+          "name": "createdAt",
+          "field_name": "created_at",
+          "type": "DateTimeField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": true,
+          "auto_now": false
+        }
+      },
+      {
+        "id": "updated_at",
+        "data": {
+          "name": "updatedAt",
+          "field_name": "updated_at",
+          "type": "DateTimeField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": true
+        }
+      },
+      {
+        "id": "password_hash",
+        "data": {
+          "name": "passwordHash",
+          "field_name": "password_hash",
+          "type": "CharField",
+          "null": true,
+          "options_target": null,
+          "default": null,
+          "max_length": "400",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "is_root",
+        "data": {
+          "name": "isRoot",
+          "field_name": "is_root",
+          "type": "BooleanField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "is_active",
+        "data": {
+          "name": "is_active",
+          "field_name": "is_active",
+          "type": "BooleanField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      }
+    ],
+    "data": {
+      "id": "user",
+      "table_name": "user",
+      "name": "User",
+      "options": null,
+      "docs": "User's table"
+    },
+    "type": "table"
+  },
+  {
+    "id": "app",
+    "rows": [
+      {
+        "id": "pk",
+        "data": {
+          "name": "pk",
+          "field_name": "pk",
+          "type": "BigAutoField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "client_id",
+        "data": {
+          "name": "clientId",
+          "field_name": "client_id",
+          "type": "CharField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": "150",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "name",
+        "data": {
+          "name": "name",
+          "field_name": "name",
+          "type": "CharField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": "50",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "logo_url",
+        "data": {
+          "name": "logoUrl",
+          "field_name": "logo_url",
+          "type": "CharField",
+          "null": true,
+          "options_target": null,
+          "default": null,
+          "max_length": "200",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "disabled",
+        "data": {
+          "name": "disabled",
+          "field_name": "disabled",
+          "type": "BooleanField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "app_url_dev",
+        "data": {
+          "name": "app_url_dev",
+          "field_name": "app_url_dev",
+          "type": "CharField",
+          "null": true,
+          "options_target": null,
+          "default": null,
+          "max_length": "100",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "app_url_stage",
+        "data": {
+          "name": "app_url_stage",
+          "field_name": "app_url_stage",
+          "type": "CharField",
+          "null": true,
+          "options_target": null,
+          "default": null,
+          "max_length": "100",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "app_url_prod",
+        "data": {
+          "name": "app_url_prod",
+          "field_name": "app_url_prod",
+          "type": "CharField",
+          "null": true,
+          "options_target": null,
+          "default": null,
+          "max_length": "100",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "group",
+        "data": {
+          "name": "group",
+          "field_name": "group",
+          "type": "ForeignKey",
+          "null": true,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": "group",
+          "related_name": "apps",
+          "on_delete": "SET_NULL",
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "tnc_link",
+        "data": {
+          "name": "tnc_link",
+          "field_name": "tnc_link",
+          "type": "CharField",
+          "null": true,
+          "options_target": null,
+          "default": null,
+          "max_length": "500",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "allow_registration",
+        "data": {
+          "name": "allow_registration",
+          "field_name": "allow_registration",
+          "type": "BooleanField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "description",
+        "data": {
+          "name": "description",
+          "field_name": "description",
+          "type": "TextField",
+          "null": true,
+          "options_target": null,
+          "default": null,
+          "max_length": "2000",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "auth_redirection_path",
+        "data": {
+          "name": "auth_redirection_path",
+          "field_name": "auth_redirection_path",
+          "type": "CharField",
+          "null": true,
+          "options_target": null,
+          "default": null,
+          "max_length": "100",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "web_interface",
+        "data": {
+          "name": "web_interface",
+          "field_name": "web_interface",
+          "type": "BooleanField",
+          "null": null,
+          "options_target": null,
+          "default": true,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      }
+    ],
+    "data": {
+      "id": "app",
+      "table_name": "app",
+      "name": "App",
+      "options": null,
+      "docs": "Application"
+    },
+    "type": "table"
+  },
+  {
+    "id": "group",
+    "rows": [
+      {
+        "id": "pk",
+        "data": {
+          "name": "pk",
+          "field_name": "pk",
+          "type": "BigAutoField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "identifier",
+        "data": {
+          "name": "identifier",
+          "field_name": "identifier",
+          "type": "CharField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": "50",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "users",
+        "data": {
+          "name": "users",
+          "field_name": "users",
+          "type": "ManyToManyField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": "user",
+          "related_name": "groups",
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "owners",
+        "data": {
+          "name": "owners",
+          "field_name": "owners",
+          "type": "ManyToManyField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": "user",
+          "related_name": "managed_groups",
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "disabled",
+        "data": {
+          "name": "disabled",
+          "field_name": "disabled",
+          "type": "BooleanField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "short_text",
+        "data": {
+          "name": "shortText",
+          "field_name": "short_text",
+          "type": "CharField",
+          "null": true,
+          "options_target": null,
+          "default": null,
+          "max_length": "100",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      }
+    ],
+    "data": {
+      "id": "group",
+      "table_name": "group",
+      "name": "Group",
+      "options": null,
+      "docs": "Groups"
+    },
+    "type": "table"
+  },
+  {
+    "id": "api_token",
+    "rows": [
+      {
+        "id": "pk",
+        "data": {
+          "name": "pk",
+          "field_name": "pk",
+          "type": "BigAutoField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "parent",
+        "data": {
+          "name": "parent",
+          "field_name": "parent",
+          "type": "ForeignKey",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": "group",
+          "related_name": "api_tokens",
+          "on_delete": "CASCADE",
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "expiry_date",
+        "data": {
+          "name": "expiryDate",
+          "field_name": "expiry_date",
+          "type": "DateField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "created_at",
+        "data": {
+          "name": "created_at",
+          "field_name": "created_at",
+          "type": "DateTimeField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": true,
+          "auto_now": false
+        }
+      },
+      {
+        "id": "updated_at",
+        "data": {
+          "name": "updated_at",
+          "field_name": "updated_at",
+          "type": "DateTimeField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": true
+        }
+      },
+      {
+        "id": "is_active",
+        "data": {
+          "name": "is_active",
+          "field_name": "is_active",
+          "type": "BooleanField",
+          "null": null,
+          "options_target": null,
+          "default": true,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "name",
+        "data": {
+          "name": "name",
+          "field_name": "name",
+          "type": "CharField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": "100",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "token_str",
+        "data": {
+          "name": "token_str",
+          "field_name": "token_str",
+          "type": "CharField",
+          "null": true,
+          "options_target": null,
+          "default": null,
+          "max_length": "400",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      }
+    ],
+    "data": {
+      "id": "api_token",
+      "table_name": "api_token",
+      "name": "api_token",
+      "options": null,
+      "docs": null
+    },
+    "type": "table"
+  },
+  {
+    "id": "tableexample",
+    "rows": [
+      {
+        "id": "pk",
+        "data": {
+          "name": "pk",
+          "field_name": "pk",
+          "type": "BigAutoField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "field1",
+        "data": {
+          "name": "field1",
+          "field_name": "field1",
+          "type": "CharField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": "300",
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      },
+      {
+        "id": "bool1",
+        "data": {
+          "name": "bool1",
+          "field_name": "bool1",
+          "type": "BooleanField",
+          "null": null,
+          "options_target": null,
+          "default": null,
+          "max_length": null,
+          "target": null,
+          "related_name": null,
+          "on_delete": null,
+          "auto_now_add": null,
+          "auto_now": null
+        }
+      }
+    ],
+    "data": {
+      "id": "tableexample",
+      "table_name": "tableexample",
+      "name": "tableexample",
+      "options": null,
+      "docs": null
+    },
+    "type": "table"
+  }
+]

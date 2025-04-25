@@ -5,83 +5,83 @@ organization_id = "ginger-society"
 db_type = "rdbms"
 description = "Identity and authorization db for IAM service"
 enable = true
-id = "a56e44a9-cfc6-4f69-9b7f-510789b6fa80"
+id = "0fdaf4b4-380b-460b-a9e1-b150d8f8f046"
 name = "IAM"
 port = "5432"
 studio_port = "9002"
 
 [[database.links]]
-icon = "FaLink"
 internal = true
 label = "Open Studio"
+icon = "FaLink"
 link = "https://iam-db-runtime-675766508318.asia-south1.run.app/admin/src/"
 
 [[database.links]]
-icon = "FaCodeBranch"
 internal = true
 label = "Pull Requests"
+icon = "FaCodeBranch"
 link = "https://github.com/ginger-society/ginger-society-db/pulls"
 
 [[database.links]]
-icon = "FaRegPlayCircle"
 internal = true
 label = "Pipelines"
+icon = "FaRegPlayCircle"
 link = "https://github.com/ginger-society/ginger-society-db/actions/workflows/CI.yml"
 
 [[database.links]]
-icon = "FaGithub"
 internal = true
 label = "Browse Repo"
+icon = "FaGithub"
 link = "https://github.com/ginger-society/ginger-society-db"
 
 [[database]]
 db_type = "rdbms"
 description = "Dev portal db for Metadata Service"
 enable = true
-id = "66bbad42-200f-4b2f-ba0d-9feb1f3edbfa"
+id = "885bde8a-5247-46f1-958c-a7d30fb06deb"
 name = "metadata"
 port = "5433"
 studio_port = "8001"
 
 [[database.links]]
-icon = "FaLink"
 internal = true
 label = "Open Studio"
+icon = "FaLink"
 link = "https://metadata-db-runtime-675766508318.asia-south1.run.app//admin/src/"
 
 [[database.links]]
-icon = "FaCodeBranch"
 internal = true
 label = "Pull Requests"
+icon = "FaCodeBranch"
 link = "https://github.com/ginger-society/metadata-service-db/pulls"
 
 [[database.links]]
-icon = "FaRegPlayCircle"
 internal = true
 label = "Pipelines"
+icon = "FaRegPlayCircle"
 link = "https://github.com/ginger-society/ginger-society-db/actions/workflows/CI.yml"
 
 [[database.links]]
-icon = "FaGithub"
 internal = true
 label = "Browse Repo"
+icon = "FaGithub"
 link = "https://github.com/ginger-society/metadata-service-db"
 
 [[database]]
 db_type = "cache"
 description = "cache for IAM and Metadata service"
 enable = true
-id = "a3f5e631-8225-4ac5-85b9-71ecd107bb6c"
-links = []
+id = "f0604500-6e42-4604-af80-784a3e74a50c"
 name = "estonia"
 port = "6380"
+links = []
 
 [[database]]
 db_type = "messagequeue"
 description = "Rabbit mq based message queue"
 enable = true
-id = "6a06e876-b40f-472d-be2b-97a2867b88f3"
-links = []
+id = "1d8a34e7-3c3d-475d-9406-df76f21939d9"
 name = "changi"
 port = "5672"
 studio_port = "15672"
+links = []
