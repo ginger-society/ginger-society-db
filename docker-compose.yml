@@ -5,6 +5,7 @@ services:
     
     IAM-runtime:
         image: gingersociety/db-compose-runtime:latest
+        command: ["/app/run.sh"]
         ports:
             - 9002:8000
         environment:
@@ -34,6 +35,7 @@ services:
     
     metadata-runtime:
         image: gingersociety/db-compose-runtime:latest
+        command: ["/app/run.sh"]
         ports:
             - 8001:8000
         environment:
@@ -62,12 +64,11 @@ services:
     
     
     estonia-redis:
-        image: bitnami/redis:6.2.5
+        image: redis:7-alpine
         restart: always
-        environment:
-            ALLOW_EMPTY_PASSWORD: "yes"
+        command: ["redis-server", "--save", "", "--appendonly", "no"]
         healthcheck:
-            test: redis-cli ping
+            test: ["CMD", "redis-cli", "ping"]
             interval: 1s
             timeout: 3s
             retries: 50

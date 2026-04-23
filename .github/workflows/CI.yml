@@ -21,77 +21,11 @@ jobs:
       id: ginger-auth
       run: ginger-auth token-login ${{ secrets.GINGER_TOKEN }}
 
-    - name: Update pipeline to running for IAM DB
-      run: ginger-connector update-db-pipeline stage running ginger-society/IAM
-
-    - name: Render latest models
-      run: ginger-db up --skip
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
 
     - name: Update pipeline to running for Metadata DB
       run: ginger-connector update-db-pipeline stage running ginger-society/metadata
-
-    - name: Migrate for IAM DB
-      working-directory: ./IAM
-      run: |
-        echo "Starting migration for IAM DB"
-        docker run \
-          -e DB_HOST=${{ secrets.DB_HOST }} \
-          -e DB_PORT=${{ secrets.DB_PORT }} \
-          -e DB_USERNAME=${{ secrets.DB_USERNAME }} \
-          -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
-          -e DB_NAME=${{ secrets.DB_NAME_ONE }} \
-          -v $(pwd)/models.py:/app/src/models.py \
-          -v $(pwd)/admin.py:/app/src/admin.py \
-          -v $(pwd)/migrations:/app/src/migrations \
-          gingersociety/db-compose-migrator:latest
-
-    - name: Update pipeline to passing for IAM DB
-      run: ginger-connector update-db-pipeline stage passing ginger-society/IAM
-
-    - name: Migrate for Metadata DB
-      working-directory: ./metadata
-      run: |
-        echo "Starting migration for Metadata DB"
-        docker run \
-          -e DB_HOST=${{ secrets.DB_HOST }} \
-          -e DB_PORT=${{ secrets.DB_PORT }} \
-          -e DB_USERNAME=${{ secrets.DB_USERNAME }} \
-          -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
-          -e DB_NAME=${{ secrets.DB_NAME_TWO }} \
-          -v $(pwd)/models.py:/app/src/models.py \
-          -v $(pwd)/admin.py:/app/src/admin.py \
-          -v $(pwd)/migrations:/app/src/migrations \
-          gingersociety/db-compose-migrator:latest
-
-    - name: Check modified files
-      run: git status
-
-    - name: Force Git detection
-      run: git add -A
-
-    - name: Commit rendered models
-      id: commit-changes
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git commit -m "Update models after rendering" || echo "No changes to commit"
-
-    # Push only if there are changes
-    - name: Push changes if any
-      if: success() && steps.commit-changes.outcome == 'success'
-      run: |
-        ginger-releaser release patch
-        git push origin main
-        ginger-connector register stage
-
-    - name: Update pipeline to passing for Metadata DB
-      run: ginger-connector update-db-pipeline stage passing ginger-society/metadata
-
-    - name: Update pipeline to passing for Estonia DB
-      run: ginger-connector update-db-pipeline stage passing ginger-society/estonia
-
-    - name: Log in to Docker Hub
-      run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
 
     - name: Build metadata-db runtime image
       working-directory: ./metadata
@@ -103,6 +37,12 @@ jobs:
       run: |
         echo "Pushing metadata-db runtime image to Docker Hub"
         docker push gingersociety/metadata-db-runtime
+    
+    - name: Update pipeline to passing for Metadata DB
+      run: ginger-connector update-db-pipeline stage passing ginger-society/metadata
+
+    - name: Update pipeline to running for IAM DB
+      run: ginger-connector update-db-pipeline stage running ginger-society/IAM
 
     - name: Build IAM-db runtime image
       working-directory: ./IAM
@@ -115,34 +55,5 @@ jobs:
         echo "Pushing iam-db runtime image to Docker Hub"
         docker push gingersociety/iam-db-runtime
 
-    # Step to authenticate with GCP
-    - name: Authenticate with GCP
-      uses: google-github-actions/setup-gcloud@v2
-      with:
-        project_id: ${{ secrets.GCP_PROJECT_ID }}  # Your GCP Project ID
-        version: 'latest'  # Specify the version to use
-
-    - name: Set up Google Cloud Application Credentials
-      run: echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" | base64 --decode > ${{ github.workspace }}/gcloud-key.json
-
-    - name: Authenticate with Google Cloud
-      run: |
-        gcloud auth activate-service-account --key-file=${{ github.workspace }}/gcloud-key.json
-
-    - name: Update Cloud Run Image - IAM
-      run: |
-        echo "Updating Cloud Run service with the new image"
-        gcloud run services update iam-db-runtime \
-          --image gingersociety/iam-db-runtime:latest \
-          --platform managed \
-          --region asia-south1 \
-          --quiet  # Add --quiet to skip confirmation prompts
-
-    - name: Update Cloud Run Image - Metadata
-      run: |
-        echo "Updating Cloud Run service with the new image"
-        gcloud run services update metadata-db-runtime \
-          --image gingersociety/metadata-db-runtime:latest \
-          --platform managed \
-          --region asia-south1 \
-          --quiet  # Add --quiet to skip confirmation prompts
+    - name: Update pipeline to passing for IAM DB
+      run: ginger-connector update-db-pipeline stage passing ginger-society/IAM
