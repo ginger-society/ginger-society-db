@@ -1,5 +1,5 @@
 # Use the base image specified in your compose file
-FROM containers.gingersociety.org/gingersociety/ginger-db-compose-runtime:prod
+FROM gingersociety/db-compose-runtime-prod:latest
 
 # Expose the application port
 EXPOSE 8000
