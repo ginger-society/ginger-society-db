@@ -4,6 +4,8 @@ FROM gingersociety/db-compose-runtime-prod:latest
 # Expose the application port
 EXPOSE 8000
 
+RUN rm -r /app/src/migrations
+
 # Copy the relevant files into the container
 COPY models.py /app/src/models.py
 COPY admin.py /app/src/admin.py
