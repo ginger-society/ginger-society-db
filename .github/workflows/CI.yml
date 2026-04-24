@@ -31,12 +31,12 @@ jobs:
       working-directory: ./metadata
       run: |
         echo "Building metadata-db runtime image"
-        docker buildx build -t gingersociety/metadata-db-runtime . --load
+        docker buildx build -t gingersociety/metadata-db-runtime-prod . --load
 
     - name: Push metadata-db runtime image
       run: |
         echo "Pushing metadata-db runtime image to Docker Hub"
-        docker push gingersociety/metadata-db-runtime
+        docker push gingersociety/metadata-db-runtime-prod
     
     - name: Update pipeline to passing for Metadata DB
       run: ginger-connector update-db-pipeline stage passing ginger-society/metadata
@@ -48,12 +48,12 @@ jobs:
       working-directory: ./IAM
       run: |
         echo "Building iam-db runtime image"
-        docker buildx build -t gingersociety/iam-db-runtime . --load
+        docker buildx build -t gingersociety/iam-db-runtime-prod . --load
 
     - name: Push IAM-db runtime image
       run: |
         echo "Pushing iam-db runtime image to Docker Hub"
-        docker push gingersociety/iam-db-runtime
+        docker push gingersociety/iam-db-runtime-prod
 
     - name: Update pipeline to passing for IAM DB
       run: ginger-connector update-db-pipeline stage passing ginger-society/IAM
